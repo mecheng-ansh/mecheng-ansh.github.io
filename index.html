@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en-NZ" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ansh Panjabi — Mechanical Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Ansh Panjabi, penultimate-year Mechanical Engineering (Hons) student at the University of Auckland. FEA-driven design, CNC machining, and dynamic simulation.">
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4F1;
+    --paper-2:#ECEDE8;
+    --ink:#15211C;
+    --ink-soft:#3C4742;
+    --ink-faint:#6E7872;
+    --rule:#C9CCC4;
+    --rule-soft:#DBDDD6;
+    --accent:#DD4B26;
+    --accent-deep:#B23A1C;
+    --white:#FCFCFA;
+    --maxw:1080px;
+    --pad:clamp(1.25rem, 5vw, 4rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .mono{font-family:"IBM Plex Mono", ui-monospace, monospace;}
+  a{color:inherit;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:0.85rem var(--pad);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+  .monogram{
+    font-family:"Space Grotesk", sans-serif;font-weight:700;
+    border:1.5px solid var(--ink);border-radius:3px;
+    width:34px;height:34px;display:grid;place-items:center;font-size:0.85rem;letter-spacing:0.02em;
+  }
+  .brand-name{font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-0.01em;}
+  .nav-links{display:flex;gap:1.4rem;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);padding-bottom:2px;border-bottom:1.5px solid transparent;transition:color .2s, border-color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink);border-color:var(--accent);}
+  @media (max-width:720px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-top:clamp(3rem,9vw,6.5rem);padding-bottom:clamp(2.5rem,7vw,4.5rem);}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:0.78rem;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--accent-deep);margin:0 0 1.4rem;
+    display:flex;align-items:center;gap:0.7rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:1.5px;background:var(--accent);display:inline-block;}
+  .hero h1{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:clamp(2.9rem,9vw,5.6rem);line-height:0.98;letter-spacing:-0.025em;
+    margin:0 0 0.4rem;
+  }
+  .hero .lede{
+    font-size:clamp(1.15rem,2.6vw,1.5rem);max-width:30ch;color:var(--ink-soft);
+    line-height:1.4;margin:1.3rem 0 0;font-weight:400;
+  }
+  .hero .lede strong{color:var(--ink);font-weight:600;}
+
+  /* dimension line under name */
+  .dimline{display:flex;align-items:center;gap:0.5rem;margin-top:1.6rem;max-width:340px;color:var(--ink-faint);}
+  .dimline .tick{width:1.5px;height:11px;background:var(--ink-faint);}
+  .dimline .span{flex:1;height:1.5px;background:var(--ink-faint);position:relative;}
+  .dimline .label{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.05em;}
+
+  /* datasheet title block */
+  .titleblock{
+    margin-top:2.6rem;border:1px solid var(--rule);background:var(--white);
+    border-radius:4px;overflow:hidden;max-width:560px;
+  }
+  .tb-row{display:flex;align-items:baseline;gap:0.5rem;padding:0.62rem 1rem;border-bottom:1px solid var(--rule-soft);font-family:"IBM Plex Mono",monospace;font-size:0.82rem;}
+  .tb-row:last-child{border-bottom:none;}
+  .tb-row .k{color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.06em;font-size:0.72rem;white-space:nowrap;}
+  .tb-row .dots{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px);min-width:14px;}
+  .tb-row .v{color:var(--ink);text-align:right;white-space:nowrap;}
+  .tb-row .v.live{color:var(--accent-deep);}
+
+  .contacts{display:flex;flex-wrap:wrap;gap:0.7rem;margin-top:1.8rem;}
+  .chip{
+    text-decoration:none;display:inline-flex;align-items:center;gap:0.45rem;
+    padding:0.55rem 0.95rem;border:1.5px solid var(--ink);border-radius:3px;
+    font-size:0.86rem;font-weight:500;background:transparent;color:var(--ink);
+    transition:background .18s,color .18s,transform .18s;
+  }
+  .chip:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);}
+  .chip.solid{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .chip.solid:hover{background:var(--accent-deep);border-color:var(--accent-deep);}
+  .chip .mono{font-size:0.82rem;}
+
+  /* ---------- SECTION FRAME ---------- */
+  section{padding-top:clamp(3rem,7vw,5rem);padding-bottom:clamp(1rem,3vw,2rem);}
+  .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.2rem;border-top:1.5px solid var(--ink);padding-top:1rem;}
+  .sec-no{font-family:"IBM Plex Mono",monospace;font-size:0.8rem;color:var(--accent-deep);letter-spacing:0.08em;}
+  .sec-title{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-0.01em;margin:0;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start;}
+  .about-grid p{margin:0 0 1.1rem;max-width:60ch;}
+  .about-grid p:last-child{margin-bottom:0;}
+  .about-side{font-family:"IBM Plex Mono",monospace;font-size:0.82rem;color:var(--ink-soft);border-left:2px solid var(--accent);padding-left:1.1rem;}
+  .about-side .ar{display:flex;justify-content:space-between;gap:1rem;padding:0.4rem 0;border-bottom:1px dotted var(--rule);}
+  .about-side .ar:last-child{border-bottom:none;}
+  .about-side .ar span:first-child{color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.05em;font-size:0.72rem;}
+  @media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ---------- PROJECTS ---------- */
+  .project{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);
+    padding:clamp(1.6rem,3.5vw,2.6rem) 0;border-bottom:1px solid var(--rule);align-items:center;
+  }
+  .project:last-of-type{border-bottom:none;}
+  .project.featured{grid-template-columns:1fr;}
+  .project.featured .fig{order:-1;}
+
+  .fig{
+    position:relative;aspect-ratio:4/3;border:1px solid var(--rule);border-radius:4px;
+    background:
+      linear-gradient(var(--rule-soft) 1px, transparent 1px) 0 0 / 100% 28px,
+      linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px) 0 0 / 28px 100%,
+      var(--paper-2);
+    display:grid;place-items:center;overflow:hidden;
+  }
+  .featured .fig{aspect-ratio:16/7;}
+  .fig img{width:100%;height:100%;object-fit:cover;display:block;}
+  .fig .crosshair{position:absolute;inset:0;pointer-events:none;}
+  .fig .crosshair::before,.fig .crosshair::after{content:"";position:absolute;background:var(--rule);}
+  .fig .crosshair::before{left:50%;top:0;bottom:0;width:1px;transform:translateX(-.5px);}
+  .fig .crosshair::after{top:50%;left:0;right:0;height:1px;transform:translateY(-.5px);}
+  .fig .figcap{
+    position:relative;z-index:1;font-family:"IBM Plex Mono",monospace;font-size:0.78rem;
+    color:var(--ink-faint);text-align:center;letter-spacing:0.03em;padding:0 1.2rem;line-height:1.5;
+    background:color-mix(in srgb, var(--paper-2) 80%, transparent);border-radius:3px;
+  }
+  .fig .figtag{position:absolute;top:0.7rem;left:0.7rem;z-index:1;font-family:"IBM Plex Mono",monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--ink-faint);background:var(--white);border:1px solid var(--rule);padding:0.15rem 0.45rem;border-radius:2px;}
+
+  .proj-no{font-family:"IBM Plex Mono",monospace;font-size:0.78rem;color:var(--accent-deep);letter-spacing:0.06em;}
+  .project h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:clamp(1.35rem,3vw,1.8rem);letter-spacing:-0.015em;margin:0.45rem 0 0.2rem;}
+  .proj-sub{color:var(--ink-faint);font-size:0.95rem;margin:0 0 1rem;}
+  .project p.body{margin:0 0 1.2rem;color:var(--ink-soft);max-width:54ch;}
+
+  .specsheet{border:1px solid var(--rule);border-radius:4px;background:var(--white);margin:0 0 1.2rem;}
+  .spec-row{display:flex;align-items:baseline;gap:0.5rem;padding:0.5rem 0.85rem;border-bottom:1px solid var(--rule-soft);font-family:"IBM Plex Mono",monospace;font-size:0.8rem;}
+  .spec-row:last-child{border-bottom:none;}
+  .spec-row .k{color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.05em;font-size:0.7rem;white-space:nowrap;}
+  .spec-row .dots{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px);min-width:12px;}
+  .spec-row .v{color:var(--ink);text-align:right;}
+
+  .tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.02em;color:var(--ink-soft);border:1px solid var(--rule);border-radius:3px;padding:0.2rem 0.55rem;background:var(--paper);}
+  @media (max-width:760px){.project{grid-template-columns:1fr;}.project .fig{order:-1;}}
+
+  /* ---------- CAPABILITIES ---------- */
+  .caps{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
+  .cap{border:1px solid var(--rule);border-radius:4px;background:var(--white);padding:1.3rem 1.4rem;}
+  .cap h4{font-family:"IBM Plex Mono",monospace;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 0.9rem;display:flex;align-items:center;gap:0.5rem;}
+  .cap h4 .ix{color:var(--ink-faint);}
+  .cap ul{margin:0;padding:0;list-style:none;}
+  .cap li{padding:0.35rem 0;border-bottom:1px dotted var(--rule-soft);font-size:0.93rem;color:var(--ink-soft);}
+  .cap li:last-child{border-bottom:none;}
+  @media (max-width:680px){.caps{grid-template-columns:1fr;}}
+
+  /* ---------- TIMELINE (experience / leadership) ---------- */
+  .entry{display:grid;grid-template-columns:170px 1fr;gap:1.4rem;padding:1.3rem 0;border-bottom:1px solid var(--rule-soft);}
+  .entry:last-child{border-bottom:none;}
+  .entry .when{font-family:"IBM Plex Mono",monospace;font-size:0.78rem;color:var(--ink-faint);letter-spacing:0.02em;padding-top:0.2rem;}
+  .entry h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 0.15rem;letter-spacing:-0.01em;}
+  .entry .org{color:var(--accent-deep);font-size:0.9rem;margin:0 0 0.7rem;font-weight:500;}
+  .entry ul{margin:0;padding-left:1.1rem;color:var(--ink-soft);font-size:0.95rem;}
+  .entry ul li{margin-bottom:0.35rem;}
+  .entry p{margin:0;color:var(--ink-soft);font-size:0.95rem;}
+  @media (max-width:640px){.entry{grid-template-columns:1fr;gap:0.4rem;}}
+
+  /* ---------- AWARDS ---------- */
+  .awards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+  .award{border-left:2px solid var(--accent);padding:0.3rem 0 0.3rem 1rem;}
+  .award .yr{font-family:"IBM Plex Mono",monospace;font-size:0.74rem;color:var(--ink-faint);}
+  .award .nm{font-size:0.95rem;color:var(--ink);font-weight:500;}
+  @media (max-width:640px){.awards{grid-template-columns:1fr;}}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1.5px solid var(--ink);margin-top:clamp(3rem,7vw,5rem);padding-top:clamp(2.5rem,6vw,4rem);padding-bottom:3rem;}
+  .foot-cta{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(1.8rem,6vw,3.2rem);letter-spacing:-0.02em;line-height:1.05;margin:0 0 1.6rem;}
+  .foot-cta .ac{color:var(--accent);}
+  .foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:2.5rem;font-family:"IBM Plex Mono",monospace;font-size:0.76rem;color:var(--ink-faint);letter-spacing:0.03em;}
+
+  /* ---------- REVEAL ---------- */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+  .js .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){.js .reveal{opacity:1;transform:none;transition:none;}}
+
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="monogram">AP</span>
+      <span class="brand-name">Ansh Panjabi</span>
+    </a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <p class="eyebrow">Mechanical Engineering / Portfolio</p>
+  <h1>Ansh<br>Panjabi</h1>
+  <p class="lede">I design, analyse, and machine precision components, then <strong>test them to see if the numbers hold.</strong></p>
+
+  <div class="dimline" aria-hidden="true">
+    <span class="tick"></span>
+    <span class="span"></span>
+    <span class="label mono">CONCEPT → ANALYSIS → BUILD → TEST</span>
+    <span class="span"></span>
+    <span class="tick"></span>
+  </div>
+
+  <div class="titleblock mono">
+    <div class="tb-row"><span class="k">Discipline</span><span class="dots"></span><span class="v">Mechanical Eng (Hons)</span></div>
+    <div class="tb-row"><span class="k">Institution</span><span class="dots"></span><span class="v">University of Auckland</span></div>
+    <div class="tb-row"><span class="k">Expected</span><span class="dots"></span><span class="v">2027</span></div>
+    <div class="tb-row"><span class="k">Location</span><span class="dots"></span><span class="v">Auckland, New Zealand</span></div>
+    <div class="tb-row"><span class="k">Status</span><span class="dots"></span><span class="v live">Seeking internship · Nov 2026 to Feb 2027</span></div>
+  </div>
+
+  <div class="contacts">
+    <a class="chip solid" href="mailto:ansh.panjabi99@gmail.com">Email me</a>
+    <a class="chip" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="chip" href="Ansh_Panjabi_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  </div>
+</header>
+
+<main>
+
+<!-- PROFILE -->
+<section id="about" class="wrap">
+  <div class="sec-head reveal"><span class="sec-no">§01</span><h2 class="sec-title">Profile</h2></div>
+  <div class="about-grid reveal">
+    <div>
+      <p>I am a penultimate-year Mechanical Engineering (Honours) student at the University of Auckland. The parts of engineering I enjoy most are where design meets the real world: modelling a part in CAD, predicting how it will behave with finite element analysis, machining it, and then putting it on a test rig to find out whether the prediction was right.</p>
+      <p>Most of the projects below started as a brief and a hard constraint, and ended as something physical I could measure. Alongside that, a workshop internship gave me real hands-on time with tools, fabrication, and safety, and my mechatronics work has built up my MATLAB, C, and Arduino skills.</p>
+      <p>I am looking for a summer internship from November 2026 to February 2027 where I can do this kind of design and analysis work, contribute properly to a team, and learn from people who do it every day.</p>
+    </div>
+    <div class="about-side">
+      <div class="ar"><span>Focus</span><span>Design &amp; analysis</span></div>
+      <div class="ar"><span>CAD</span><span>Autodesk Inventor</span></div>
+      <div class="ar"><span>FEA</span><span>ANSYS</span></div>
+      <div class="ar"><span>Code</span><span>MATLAB · C · Arduino</span></div>
+      <div class="ar"><span>Made</span><span>CNC · 3D print · mould</span></div>
+      <div class="ar"><span>Tested</span><span>Instron · hand calc</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="wrap">
+  <div class="sec-head reveal"><span class="sec-no">§02</span><h2 class="sec-title">Selected work</h2></div>
+
+  <!-- Featured: bracket -->
+  <article class="project featured reveal">
+    <div class="fig">
+      <span class="figtag mono">FIG. 01</span>
+      <span class="crosshair"></span>
+      <span class="figcap mono">[ replace with: ANSYS stress plot, CAD render, or photo of the machined bracket ]</span>
+    </div>
+    <div>
+      <span class="proj-no mono">PROJECT 01 / STRUCTURAL DESIGN</span>
+      <h3>Lightweight aircraft-style structural bracket</h3>
+      <p class="proj-sub">FEA-driven design optimised for stiffness at minimum mass, validated on an Instron rig.</p>
+      <p class="body">The brief was to design a bracket that met defined stiffness targets under both tension and compression at the lowest possible mass. I modelled it in Inventor and ran iterative ANSYS FEA to find where material was earning its place and where it was not, checking the results against hand calculations. I then programmed the CNC toolpaths to machine it from polycarbonate sheet, designing the geometry to be machinable within the available tooling, and verified the finished part on an Instron tensile and compression test.</p>
+      <div class="specsheet">
+        <div class="spec-row"><span class="k">Load · tension</span><span class="dots"></span><span class="v">3.0 kN target</span></div>
+        <div class="spec-row"><span class="k">Load · compression</span><span class="dots"></span><span class="v">4.0 kN target</span></div>
+        <div class="spec-row"><span class="k">Objective</span><span class="dots"></span><span class="v">Max stiffness / min mass</span></div>
+        <div class="spec-row"><span class="k">Material</span><span class="dots"></span><span class="v">Polycarbonate sheet</span></div>
+        <div class="spec-row"><span class="k">Validation</span><span class="dots"></span><span class="v">ANSYS + hand calc + Instron</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">ANSYS FEA</span><span class="tag">Autodesk Inventor</span><span class="tag">Inventor CAM</span><span class="tag">G-code</span><span class="tag">CNC milling</span><span class="tag">Instron testing</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Ball transport -->
+  <article class="project reveal">
+    <div>
+      <span class="proj-no mono">PROJECT 02 / MECHANISM DESIGN</span>
+      <h3>Multi-mechanism ball-transport device</h3>
+      <p class="proj-sub">A timed transport mechanism designed to a precise 5.0 second specification.</p>
+      <p class="body">This device had to move a ball through a sequence of mechanisms and hit a fixed timing target of 5.0 seconds. I used Autodesk Inventor's dynamic simulation to tune the geometry and motion before committing to anything physical, then prototyped the parts through 3D printing and laser cutting. Getting the timing to land reliably meant iterating on the design until the simulation and the real build agreed.</p>
+      <div class="specsheet">
+        <div class="spec-row"><span class="k">Timing spec</span><span class="dots"></span><span class="v">5.0 s</span></div>
+        <div class="spec-row"><span class="k">Simulation</span><span class="dots"></span><span class="v">Inventor dynamic</span></div>
+        <div class="spec-row"><span class="k">Prototyping</span><span class="dots"></span><span class="v">3D print + laser cut</span></div>
+      </div>
+      <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Dynamic simulation</span><span class="tag">3D printing</span><span class="tag">Laser cutting</span></div>
+    </div>
+    <div class="fig">
+      <span class="figtag mono">FIG. 02</span>
+      <span class="crosshair"></span>
+      <span class="figcap mono">[ replace with: Inventor motion study screenshot or photo of the prototype ]</span>
+    </div>
+  </article>
+
+  <!-- Robotics -->
+  <article class="project reveal">
+    <div class="fig">
+      <span class="figtag mono">FIG. 03</span>
+      <span class="crosshair"></span>
+      <span class="figcap mono">[ replace with: render or photo of the robot body / pick-up mechanism ]</span>
+    </div>
+    <div>
+      <span class="proj-no mono">PROJECT 03 / MECHATRONICS</span>
+      <h3>Arduino-driven task robot</h3>
+      <p class="proj-sub">Design lead (CAD) for a team robot built to pick up and release a ball.</p>
+      <p class="body">As the design lead on a team robotics project, I designed the laser-cut and 3D-printed body and the ball pick-up and release mechanisms, and worked on the embedded Arduino integration. It was a good exercise in taking a system from CAD and code through to a working physical machine, and in making the mechanical design and the control side fit together.</p>
+      <div class="specsheet">
+        <div class="spec-row"><span class="k">Role</span><span class="dots"></span><span class="v">Design lead (CAD)</span></div>
+        <div class="spec-row"><span class="k">Control</span><span class="dots"></span><span class="v">Arduino / C</span></div>
+        <div class="spec-row"><span class="k">Fabrication</span><span class="dots"></span><span class="v">Laser cut + 3D print</span></div>
+      </div>
+      <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Arduino</span><span class="tag">C</span><span class="tag">Mechatronics</span><span class="tag">3D printing</span></div>
+    </div>
+  </article>
+
+  <!-- Manufacturing / design studies -->
+  <article class="project reveal">
+    <div>
+      <span class="proj-no mono">PROJECT 04 / DESIGN &amp; MANUFACTURE</span>
+      <h3>Injection-moulded case &amp; gear reducer study</h3>
+      <p class="proj-sub">Two design-for-manufacture exercises: a moulded silicone part and a full reducer design.</p>
+      <p class="body">I designed and injection-moulded a silicone phone case using 3D-printed mould tooling, working through the practicalities of designing a part around the way it would actually be made. Separately, I fully documented a gear reducer design, sizing and specifying the shafts, gears, bearings, keys, and the clutch and brake. Together these built up my design-for-manufacture thinking from two quite different angles.</p>
+      <div class="specsheet">
+        <div class="spec-row"><span class="k">Part 1</span><span class="dots"></span><span class="v">Silicone case, 3D-printed mould</span></div>
+        <div class="spec-row"><span class="k">Part 2</span><span class="dots"></span><span class="v">Gear reducer, full spec</span></div>
+        <div class="spec-row"><span class="k">Includes</span><span class="dots"></span><span class="v">Shafts · gears · bearings · keys</span></div>
+      </div>
+      <div class="tags"><span class="tag">Injection moulding</span><span class="tag">Design for manufacture</span><span class="tag">Mechanical design</span><span class="tag">Autodesk Inventor</span></div>
+    </div>
+    <div class="fig">
+      <span class="figtag mono">FIG. 04</span>
+      <span class="crosshair"></span>
+      <span class="figcap mono">[ replace with: photo of the moulded case or the gear reducer drawing ]</span>
+    </div>
+  </article>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" class="wrap">
+  <div class="sec-head reveal"><span class="sec-no">§03</span><h2 class="sec-title">Capabilities</h2></div>
+  <div class="caps reveal">
+    <div class="cap">
+      <h4><span class="ix">A.</span> Design &amp; analysis</h4>
+      <ul>
+        <li>FEA in ANSYS for stiffness, strength and failure prediction</li>
+        <li>CAD modelling and dynamic simulation in Autodesk Inventor</li>
+        <li>CAM and NC toolpath programming (Inventor CAM, G-code)</li>
+        <li>Hand calculations and engineering drawings</li>
+      </ul>
+    </div>
+    <div class="cap">
+      <h4><span class="ix">B.</span> Manufacturing &amp; workshop</h4>
+      <ul>
+        <li>CNC milling and turning</li>
+        <li>3D printing, laser cutting, injection moulding</li>
+        <li>MIG welding, composite manufacture, fabrication</li>
+        <li>Precision measurement (calipers, micrometers, torque)</li>
+      </ul>
+    </div>
+    <div class="cap">
+      <h4><span class="ix">C.</span> Programming &amp; control</h4>
+      <ul>
+        <li>MATLAB and Simulink (mechatronics, dynamics)</li>
+        <li>C programming across coursework and projects</li>
+        <li>Arduino microcontroller programming</li>
+        <li>Control systems fundamentals</li>
+      </ul>
+    </div>
+    <div class="cap">
+      <h4><span class="ix">D.</span> Professional</h4>
+      <ul>
+        <li>Project leadership and planning</li>
+        <li>Technical reporting and documentation</li>
+        <li>Cross-functional teamwork</li>
+        <li>Workshop safety protocols</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="wrap">
+  <div class="sec-head reveal"><span class="sec-no">§04</span><h2 class="sec-title">Experience</h2></div>
+  <div class="reveal">
+    <div class="entry">
+      <div class="when mono">Jan 2026 - Feb 2026</div>
+      <div>
+        <h3>Mechanical Intern</h3>
+        <p class="org">Bruce Mills 2012 Ltd, Lower Hutt</p>
+        <ul>
+          <li>Independently completed Warrant of Fitness inspections and mechanical servicing across cars, vans and trucks, including brake and brake-cable replacements, oil and filter changes, and wheel servicing.</li>
+          <li>Assisted senior mechanics on high-risk repairs involving welding, structural work and critical systems, building diagnostic exposure to cooling, electrical, and air and fuel delivery systems.</li>
+          <li>Worked largely unsupervised with zero safety incidents, applying engineering principles, workshop safety practices, and structured problem-solving to diagnose and resolve faults.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="when mono">Mar 2024 - Present</div>
+      <div>
+        <h3>Engineering Project Developer</h3>
+        <p class="org">University of Auckland</p>
+        <ul>
+          <li>Delivered the structural bracket, ball-transport mechanism, robotics and design-for-manufacture projects shown above, from brief through to a tested or working result.</li>
+          <li>Led a small team through a manufacturing design paper, planning the work and reallocating tasks when a member fell ill near a deadline and another was unavailable on submission day. Both designs met their brief.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="wrap">
+  <div class="sec-head reveal"><span class="sec-no">§05</span><h2 class="sec-title">Leadership &amp; activities</h2></div>
+  <div class="reveal">
+    <div class="entry">
+      <div class="when mono">May 2026 - Present</div>
+      <div>
+        <h3>Structural Team Member</h3>
+        <p class="org">University of Auckland Rocketry Club</p>
+        <p>Building high-powered rockets, with a focus on composite manufacture of structural components.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="when mono">Apr 2026 - Present</div>
+      <div>
+        <h3>Events Executive</h3>
+        <p class="org">Startup Club UoA</p>
+        <p>Leading end-to-end event planning and logistics that connect students with the startup ecosystem.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="when mono">Dec 2024 - Feb 2026</div>
+      <div>
+        <h3>Events Executive</h3>
+        <p class="org">Auckland University Indian Society</p>
+        <p>Coordinated cultural and social events, partnering with vendors and student leaders to drive engagement.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="when mono">Jan 2021 - Apr 2023</div>
+      <div>
+        <h3>Youth Facilitator</h3>
+        <p class="org">Hindu Swayamsevak Sangh (NZ)</p>
+        <p>Led week-long youth camps and community sessions promoting leadership and cultural education. Recognised with the SVA Top Volunteer and Silver Service awards for 250+ hours of service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION / AWARDS -->
+<section id="education" class="wrap">
+  <div class="sec-head reveal"><span class="sec-no">§06</span><h2 class="sec-title">Education &amp; recognition</h2></div>
+  <div class="about-grid reveal">
+    <div>
+      <p><strong>Bachelor of Engineering (Honours), Mechanical Engineering</strong><br>The University of Auckland · Expected 2027</p>
+      <p>Coursework spans finite element analysis, design and manufacture (CAD/CAM), control systems, materials mechanics, thermodynamics, fluid mechanics, dynamics, mechatronics, and engineering project management. I completed the Faculty of Engineering Development Leadership Programme (Core) and was selected from hundreds of applicants to interview for DLP Elevate (2026).</p>
+    </div>
+    <div class="awards">
+      <div class="award"><div class="yr mono">2023</div><div class="nm">UoA Top Achiever Scholarship</div></div>
+      <div class="award"><div class="yr mono">2026</div><div class="nm">DLP Elevate interview selection</div></div>
+      <div class="award"><div class="yr mono">2023</div><div class="nm">SVA Top Volunteer Award</div></div>
+      <div class="award"><div class="yr mono">2023</div><div class="nm">Silver Service Award · 250+ hrs</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="wrap">
+  <p class="foot-cta">Looking for a summer intern who actually <span class="ac">tests the numbers?</span><br>Let's talk.</p>
+  <div class="contacts">
+    <a class="chip solid" href="mailto:ansh.panjabi99@gmail.com">ansh.panjabi99@gmail.com</a>
+    <a class="chip" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="chip" href="Ansh_Panjabi_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  </div>
+  <div class="foot-meta">
+    <span>ANSH PANJABI / MECHANICAL ENGINEERING</span>
+    <span>AUCKLAND, NZ · AVAILABLE NOV 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+
+  // Active nav highlight
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var map = {};
+    links.forEach(function(l){var id=l.getAttribute('href').slice(1);var s=document.getElementById(id);if(s)map[id]=l;});
+    var sections = Object.keys(map).map(function(id){return document.getElementById(id);});
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){l.classList.remove('active');});
+          var active = map[en.target.id];
+          if(active) active.classList.add('active');
+        }
+      });
+    }, {threshold:0.25, rootMargin:'-30% 0px -55% 0px'});
+    sections.forEach(function(s){spy.observe(s);});
+  })();
+</script>
+
+</body>
+</html>
