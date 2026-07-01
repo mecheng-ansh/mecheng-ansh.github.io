@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-NZ" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Ansh Panjabi</title>
+<meta name="description" content="Engineering projects by Ansh Panjabi: structural bracket, ball-transport mechanism, Arduino robot, and design-for-manufacture studies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html"><span class="mark">AP</span><b>Ansh Panjabi</b></a>
+  <div class="nav-links">
+    <a href="projects.html" aria-current="page"><span class="ix">01</span> Projects</a>
+    <a href="experience.html"><span class="ix">02</span> Experience</a>
+    <a href="contact.html"><span class="ix">03</span> Contact</a>
+    <a class="cta" href="contact.html">Hire me</a>
+  </div>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-overlay" aria-hidden="true">
+  <a href="projects.html"><span class="ix">01</span> Projects</a>
+  <a href="experience.html"><span class="ix">02</span> Experience</a>
+  <a href="contact.html"><span class="ix">03</span> Contact</a>
+</div>
+
+<header class="page-top wrap">
+  <span class="eyebrow hero-anim" style="--hd:.05s">01 / Selected work</span>
+  <h2 class="hero-anim" style="--hd:.15s; font-family:var(--font-display); font-weight:700; font-size:clamp(2.6rem,8vw,5.5rem); line-height:1; letter-spacing:-.03em; margin-top:1.2rem;">Projects</h2>
+  <p class="hero-anim" style="--hd:.3s; color:var(--text-dim); font-size:1.2rem; max-width:54ch; margin-top:1.2rem;">Each of these started as a brief and a constraint. The interesting work was in the loop: predict, build, test, and find out how close the model really was.</p>
+</header>
+
+<main class="wrap">
+
+  <!-- 01 bracket (featured) -->
+  <article class="proj lead reveal">
+    <div class="proj-media">
+      <div class="frame"><span class="ftag mono">FIG.01 / STRUCTURAL BRACKET</span><span class="cap mono">[ replace with ANSYS stress plot, CAD render, or a photo of the machined part on the Instron rig ]</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+    </div>
+    <div class="proj-body">
+      <span class="proj-no mono">PROJECT 01 / STRUCTURAL DESIGN</span>
+      <h3>Lightweight aircraft-style structural bracket</h3>
+      <p class="sub">FEA-driven design optimised for stiffness at minimum mass, validated on an Instron rig.</p>
+      <p class="desc">The brief was to design a bracket that met defined stiffness targets under both tension and compression at the lowest possible mass. I modelled it in Inventor and ran iterative ANSYS FEA to see where material was earning its place and where it was not, checking the results against hand calculations. I then programmed the CNC toolpaths to machine it from polycarbonate sheet, designing the geometry to be machinable within the available tooling, and verified the finished part on an Instron tensile and compression test.</p>
+      <div class="readout">
+        <div class="row"><span class="k">Load · tension</span><span class="v">3.0 kN target</span></div>
+        <div class="row"><span class="k">Load · compression</span><span class="v">4.0 kN target</span></div>
+        <div class="row"><span class="k">Objective</span><span class="v">Max stiffness / min mass</span></div>
+        <div class="row"><span class="k">Material</span><span class="v">Polycarbonate sheet</span></div>
+        <div class="row"><span class="k">Analysis</span><span class="v">ANSYS FEA + hand calc</span></div>
+        <div class="row"><span class="k">Validation</span><span class="v">Instron test</span></div>
+      </div>
+      <div class="tags"><span class="tag">ANSYS FEA</span><span class="tag">Autodesk Inventor</span><span class="tag">Inventor CAM</span><span class="tag">G-code</span><span class="tag">CNC milling</span><span class="tag">Instron testing</span></div>
+    </div>
+  </article>
+
+  <!-- 02 ball transport -->
+  <article class="proj reveal">
+    <div class="proj-body">
+      <span class="proj-no mono">PROJECT 02 / MECHANISM DESIGN</span>
+      <h3>Multi-mechanism ball-transport device</h3>
+      <p class="sub">A timed transport mechanism designed to a precise 5.0 second specification.</p>
+      <p class="desc">This device had to move a ball through a sequence of mechanisms and hit a fixed timing target of 5.0 seconds. I used Autodesk Inventor's dynamic simulation to tune the geometry and motion before committing to anything physical, then prototyped the parts through 3D printing and laser cutting. Getting the timing to land reliably meant iterating until the simulation and the real build agreed.</p>
+      <div class="readout">
+        <div class="row"><span class="k">Timing spec</span><span class="v">5.0 s</span></div>
+        <div class="row"><span class="k">Simulation</span><span class="v">Inventor dynamic</span></div>
+        <div class="row"><span class="k">Prototyping</span><span class="v">3D print + laser cut</span></div>
+        <div class="row"><span class="k">Approach</span><span class="v">Sim-to-build loop</span></div>
+      </div>
+      <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Dynamic simulation</span><span class="tag">3D printing</span><span class="tag">Laser cutting</span></div>
+    </div>
+    <div class="proj-media">
+      <div class="frame"><span class="ftag mono">FIG.02 / BALL TRANSPORT</span><span class="cap mono">[ replace with an Inventor motion study screenshot or a photo of the prototype ]</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+    </div>
+  </article>
+
+  <!-- 03 robot -->
+  <article class="proj flip reveal">
+    <div class="proj-media">
+      <div class="frame"><span class="ftag mono">FIG.03 / TASK ROBOT</span><span class="cap mono">[ replace with a render or photo of the robot body and pick-up mechanism ]</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+    </div>
+    <div class="proj-body">
+      <span class="proj-no mono">PROJECT 03 / MECHATRONICS</span>
+      <h3>Arduino-driven task robot</h3>
+      <p class="sub">Design lead (CAD) for a team robot built to pick up and release a ball.</p>
+      <p class="desc">As the design lead on a team robotics project, I designed the laser-cut and 3D-printed body and the ball pick-up and release mechanisms, and worked on the embedded Arduino integration. It was a good exercise in taking a system from CAD and code through to a working physical machine, and in making the mechanical design and the control side fit together.</p>
+      <div class="readout">
+        <div class="row"><span class="k">Role</span><span class="v">Design lead (CAD)</span></div>
+        <div class="row"><span class="k">Control</span><span class="v">Arduino / C</span></div>
+        <div class="row"><span class="k">Fabrication</span><span class="v">Laser cut + 3D print</span></div>
+        <div class="row"><span class="k">Scope</span><span class="v">Body + mechanisms</span></div>
+      </div>
+      <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Arduino</span><span class="tag">C</span><span class="tag">Mechatronics</span><span class="tag">3D printing</span></div>
+    </div>
+  </article>
+
+  <!-- 04 DFM -->
+  <article class="proj reveal">
+    <div class="proj-body">
+      <span class="proj-no mono">PROJECT 04 / DESIGN &amp; MANUFACTURE</span>
+      <h3>Injection-moulded case &amp; gear reducer study</h3>
+      <p class="sub">Two design-for-manufacture exercises: a moulded silicone part and a full reducer design.</p>
+      <p class="desc">I designed and injection-moulded a silicone phone case using 3D-printed mould tooling, working through the practicalities of designing a part around the way it would actually be made. Separately, I fully documented a gear reducer design, sizing and specifying the shafts, gears, bearings, keys, and the clutch and brake. Together these built up my design-for-manufacture thinking from two quite different angles.</p>
+      <div class="readout">
+        <div class="row"><span class="k">Part 1</span><span class="v">Silicone case</span></div>
+        <div class="row"><span class="k">Tooling</span><span class="v">3D-printed mould</span></div>
+        <div class="row"><span class="k">Part 2</span><span class="v">Gear reducer, full spec</span></div>
+        <div class="row"><span class="k">Includes</span><span class="v">Shafts · gears · bearings</span></div>
+      </div>
+      <div class="tags"><span class="tag">Injection moulding</span><span class="tag">Design for manufacture</span><span class="tag">Mechanical design</span><span class="tag">Autodesk Inventor</span></div>
+    </div>
+    <div class="proj-media">
+      <div class="frame"><span class="ftag mono">FIG.04 / DFM STUDIES</span><span class="cap mono">[ replace with a photo of the moulded case or the gear reducer drawing ]</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+    </div>
+  </article>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-cta wrap reveal">
+    <h2>Want the detail behind any of these? <em>Ask me.</em></h2>
+    <a class="btn btn-primary" href="contact.html">Get in touch <span class="arr">&rarr;</span></a>
+  </div>
+  <div class="foot-bar wrap">
+    <div class="links">
+      <a href="mailto:ansh.panjabi99@gmail.com">ansh.panjabi99@gmail.com</a>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Ansh_Panjabi_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+    <span>© <span id="year">2026</span> Ansh Panjabi · Auckland, NZ</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
