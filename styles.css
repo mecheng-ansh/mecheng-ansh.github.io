@@ -305,7 +305,8 @@ img{max-width:100%;display:block;}
 .channel{display:flex;align-items:center;justify-content:space-between;gap:1rem;border:1px solid var(--line);border-radius:var(--r);padding:1.2rem 1.4rem;background:var(--surface);transition:transform .3s,border-color .3s,background .3s;}
 .channel:hover{transform:translateX(6px);border-color:var(--accent);background:var(--surface-2);}
 .channel .lab{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint);}
-.channel .val{font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-top:.2rem;}
+.channel > span:first-child{display:flex;flex-direction:column;min-width:0;}
+.channel .val{font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-top:.35rem;overflow-wrap:anywhere;}
 .channel .arr{color:var(--accent);font-size:1.3rem;transition:transform .25s var(--ease);}
 .channel:hover .arr{transform:translate(4px,-4px);}
 
