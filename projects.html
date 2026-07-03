@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects | Ansh Panjabi</title>
-<meta name="description" content="Engineering projects by Ansh Panjabi: structural bracket, ball-transport mechanism, Arduino robot, and design-for-manufacture studies.">
+<meta name="description" content="Engineering projects by Ansh Panjabi: structural bracket, timed marble run, Arduino robot, design-for-manufacture studies, and manufacturing fundamentals.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,15 +45,15 @@
     <div class="proj-body">
       <span class="proj-no mono">PROJECT 01 / STRUCTURAL DESIGN</span>
       <h3>Lightweight aircraft-style structural bracket</h3>
-      <p class="sub">FEA-driven design optimised for stiffness at minimum mass, validated on an Instron rig.</p>
-      <p class="desc">The brief was to design a bracket that met defined stiffness targets under both tension and compression at the lowest possible mass. I modelled it in Inventor and ran iterative ANSYS FEA to see where material was earning its place and where it was not, checking the results against hand calculations. I then programmed the CNC toolpaths to machine it from polycarbonate sheet, designing the geometry to be machinable within the available tooling, and verified the finished part on an Instron tensile and compression test.</p>
+      <p class="sub">FEA-driven design validated on an Instron rig: predictions landed within 4% of the physical test.</p>
+      <p class="desc">The brief was a bracket meeting stiffness targets of 3.0 kN in tension and 4.0 kN in compression at the lowest possible mass. I modelled it in Inventor, iterated the geometry through ANSYS FEA checked against hand calculations, then programmed the CNC toolpaths and machined it from polycarbonate sheet. On the Instron, the finished part carried 3.2 kN in tension, landed within half a percent of the 4.0 kN compression target, and never failed: the test topped out at its 10 kN limit with the bracket still intact.</p>
       <div class="readout">
-        <div class="row"><span class="k">Load · tension</span><span class="v">3.0 kN target</span></div>
-        <div class="row"><span class="k">Load · compression</span><span class="v">4.0 kN target</span></div>
-        <div class="row"><span class="k">Objective</span><span class="v">Max stiffness / min mass</span></div>
-        <div class="row"><span class="k">Material</span><span class="v">Polycarbonate sheet</span></div>
-        <div class="row"><span class="k">Analysis</span><span class="v">ANSYS FEA + hand calc</span></div>
-        <div class="row"><span class="k">Validation</span><span class="v">Instron test</span></div>
+        <div class="row"><span class="k">Final mass</span><span class="v">119.5 g</span></div>
+        <div class="row"><span class="k">Tension</span><span class="v">3.2 kN · target 3.0</span></div>
+        <div class="row"><span class="k">Compression</span><span class="v">3.98 kN · target 4.0</span></div>
+        <div class="row"><span class="k">FEA vs test</span><span class="v">Within 4%</span></div>
+        <div class="row"><span class="k">Failure</span><span class="v">None to 10 kN rig limit</span></div>
+        <div class="row"><span class="k">Material</span><span class="v">Polycarbonate, CNC milled</span></div>
       </div>
       <div class="tags"><span class="tag">ANSYS FEA</span><span class="tag">Autodesk Inventor</span><span class="tag">Inventor CAM</span><span class="tag">G-code</span><span class="tag">CNC milling</span><span class="tag">Instron testing</span></div>
     </div>
@@ -64,13 +64,13 @@
     <div class="proj-body">
       <span class="proj-no mono">PROJECT 02 / MECHANISM DESIGN</span>
       <h3>Multi-mechanism ball-transport device</h3>
-      <p class="sub">A timed transport mechanism designed to a precise 5.0 second specification.</p>
-      <p class="desc">This device had to move a ball through a sequence of mechanisms and hit a fixed timing target of 5.0 seconds. I used Autodesk Inventor's dynamic simulation to tune the geometry and motion before committing to anything physical, then prototyped the parts through 3D printing and laser cutting. Getting the timing to land reliably meant iterating until the simulation and the real build agreed.</p>
+      <p class="sub">A scotch yoke and gear-driven lift designed to a 5.0 second spec. On demo day: exactly 5.0 seconds.</p>
+      <p class="desc">The device had to move a ball through a sequence of mechanisms and deliver it at precisely 5.0 seconds. Our design used a scotch yoke to push the ball out and a gear train driving a large wheel that carried it up. I tuned the geometry in Autodesk Inventor's dynamic simulation until the model hit the target, and we prototyped through 3D printing and laser cutting. On demo day the machine delivered the ball at exactly 5.0 seconds, matching its own simulation.</p>
       <div class="readout">
         <div class="row"><span class="k">Timing spec</span><span class="v">5.0 s</span></div>
+        <div class="row"><span class="k">Demo result</span><span class="v">5.0 s, exact</span></div>
+        <div class="row"><span class="k">Mechanisms</span><span class="v">Scotch yoke + gear train</span></div>
         <div class="row"><span class="k">Simulation</span><span class="v">Inventor dynamic</span></div>
-        <div class="row"><span class="k">Prototyping</span><span class="v">3D print + laser cut</span></div>
-        <div class="row"><span class="k">Approach</span><span class="v">Sim-to-build loop</span></div>
       </div>
       <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Dynamic simulation</span><span class="tag">3D printing</span><span class="tag">Laser cutting</span></div>
     </div>
@@ -87,13 +87,13 @@
     <div class="proj-body">
       <span class="proj-no mono">PROJECT 03 / MECHATRONICS</span>
       <h3>Arduino-driven task robot</h3>
-      <p class="sub">Design lead (CAD) for a team robot built to pick up and release a ball.</p>
-      <p class="desc">As the design lead on a team robotics project, I designed the laser-cut and 3D-printed body and the ball pick-up and release mechanisms, and worked on the embedded Arduino integration. It was a good exercise in taking a system from CAD and code through to a working physical machine, and in making the mechanical design and the control side fit together.</p>
+      <p class="sub">Design lead (CAD) for a team robot built to collect two pods and deliver them to a drop zone, against the clock.</p>
+      <p class="desc">The task: start anywhere on the course, collect two pods, and deliver them into a drop zone as fast as possible. As design lead I designed the laser-cut and 3D-printed body and the pick-up and release mechanisms, and wrote the control code. The plan was closed-loop control with encoders; late wiring and integration problems meant the encoders were unusable on the day, so we shipped open-loop control tuned by trial and error, and the robot ran its task. It taught me to integrate the full system early and to always keep a fallback you can actually ship.</p>
       <div class="readout">
         <div class="row"><span class="k">Role</span><span class="v">Design lead (CAD)</span></div>
         <div class="row"><span class="k">Control</span><span class="v">Arduino / C</span></div>
         <div class="row"><span class="k">Fabrication</span><span class="v">Laser cut + 3D print</span></div>
-        <div class="row"><span class="k">Scope</span><span class="v">Body + mechanisms</span></div>
+        <div class="row"><span class="k">Lesson</span><span class="v">Integrate early</span></div>
       </div>
       <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Arduino</span><span class="tag">C</span><span class="tag">Mechatronics</span><span class="tag">3D printing</span></div>
     </div>
@@ -105,9 +105,9 @@
       <span class="proj-no mono">PROJECT 04 / DESIGN &amp; MANUFACTURE</span>
       <h3>Injection-moulded case &amp; gear reducer study</h3>
       <p class="sub">Two design-for-manufacture exercises: a moulded silicone part and a full reducer design.</p>
-      <p class="desc">I designed and injection-moulded a silicone phone case using 3D-printed mould tooling, working through the practicalities of designing a part around the way it would actually be made. Separately, I fully documented a gear reducer design, sizing and specifying the shafts, gears, bearings, keys, and the clutch and brake. Together these built up my design-for-manufacture thinking from two quite different angles.</p>
+      <p class="desc">I designed and injection-moulded a silicone phone case using 3D-printed mould tooling. The case fit the phone and met its lightweight spec at 45.6 g against a 50 g limit, but de-moulding damaged the retaining lip, which cost it the vertical retention test: a first-hand lesson that the de-moulding process deserves as much design attention as the part itself. Separately, I fully documented a gear reducer, sizing and specifying the shafts, gears, bearings, keys, and the clutch and brake, taking a design brief through to a complete drawing set.</p>
       <div class="readout">
-        <div class="row"><span class="k">Part 1</span><span class="v">Silicone case</span></div>
+        <div class="row"><span class="k">Case mass</span><span class="v">45.6 g · spec &lt;50 g</span></div>
         <div class="row"><span class="k">Tooling</span><span class="v">3D-printed mould</span></div>
         <div class="row"><span class="k">Part 2</span><span class="v">Gear reducer, full spec</span></div>
         <div class="row"><span class="k">Includes</span><span class="v">Shafts · gears · bearings</span></div>
@@ -116,6 +116,26 @@
     </div>
     <div class="proj-media">
       <div class="frame"><span class="ftag mono">FIG.04 / DFM STUDIES</span><span class="cap mono">[ replace with a photo of the moulded case or the gear reducer drawing ]</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+    </div>
+  </article>
+
+  <!-- 05 manufacturing fundamentals -->
+  <article class="proj flip reveal">
+    <div class="proj-media">
+      <div class="frame"><span class="ftag mono">FIG.05 / MANUFACTURING</span><span class="cap mono">[ replace with a photo of the noughts and crosses set, pieces mid-game on the board ]</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+    </div>
+    <div class="proj-body">
+      <span class="proj-no mono">PROJECT 05 / MANUFACTURING</span>
+      <h3>Welded, turned and milled: a noughts and crosses set</h3>
+      <p class="sub">One small object, three machining processes, from the course where I learned to run the machines.</p>
+      <p class="desc">MECHENG 299 opened with an induction into 3D printing and laser cutting, assembling a small battery-powered motor from supplied files and finishing its base and fittings with hand tools, then moved onto the machines. The piece that sums it up is a noughts and crosses set I still own: the board is two plates I welded together, the noughts were turned on a lathe, and the crosses were milled. Those skills carried straight into prototyping the task robot and machining the structural bracket.</p>
+      <div class="readout">
+        <div class="row"><span class="k">Welded</span><span class="v">The board, two plates</span></div>
+        <div class="row"><span class="k">Turned</span><span class="v">The noughts</span></div>
+        <div class="row"><span class="k">Milled</span><span class="v">The crosses</span></div>
+        <div class="row"><span class="k">Also</span><span class="v">3D print + laser cut</span></div>
+      </div>
+      <div class="tags"><span class="tag">Welding</span><span class="tag">Turning</span><span class="tag">CNC milling</span><span class="tag">3D printing</span><span class="tag">Laser cutting</span></div>
     </div>
   </article>
 
