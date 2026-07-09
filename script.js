@@ -183,3 +183,52 @@ function initGear(){
     show(0);
   });
 })();
+
+/* ---- fullscreen lightbox for frame images ---- */
+(function(){
+  var overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.innerHTML = '<button class="lb-close" aria-label="Close">&#215;</button>' +
+    '<button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>' +
+    '<img class="lb-img" alt="">' +
+    '<button class="lb-btn lb-next" aria-label="Next">&#8250;</button>' +
+    '<span class="lb-count mono"></span>';
+  document.body.appendChild(overlay);
+
+  var lbImg = overlay.querySelector('.lb-img');
+  var lbCount = overlay.querySelector('.lb-count');
+  var prevBtn = overlay.querySelector('.lb-prev');
+  var nextBtn = overlay.querySelector('.lb-next');
+  var group = [], idx = 0;
+
+  function render(){
+    var im = group[idx];
+    lbImg.src = im.src;
+    lbImg.alt = im.alt || '';
+    var multi = group.length > 1;
+    lbCount.textContent = multi ? (idx + 1) + ' / ' + group.length : '';
+    prevBtn.style.display = multi ? 'grid' : 'none';
+    nextBtn.style.display = multi ? 'grid' : 'none';
+    lbCount.style.display = multi ? 'block' : 'none';
+  }
+  function openLb(imgs, i){ group = imgs; idx = i; render(); overlay.classList.add('on'); document.body.style.overflow = 'hidden'; }
+  function closeLb(){ overlay.classList.remove('on'); document.body.style.overflow = ''; }
+
+  prevBtn.addEventListener('click', function(e){ e.stopPropagation(); idx = (idx - 1 + group.length) % group.length; render(); });
+  nextBtn.addEventListener('click', function(e){ e.stopPropagation(); idx = (idx + 1) % group.length; render(); });
+  overlay.querySelector('.lb-close').addEventListener('click', closeLb);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(!overlay.classList.contains('on')) return;
+    if(e.key === 'Escape') closeLb();
+    if(e.key === 'ArrowLeft') prevBtn.click();
+    if(e.key === 'ArrowRight') nextBtn.click();
+  });
+
+  document.querySelectorAll('.frame').forEach(function(frame){
+    var imgs = Array.prototype.slice.call(frame.querySelectorAll('img'));
+    imgs.forEach(function(img, i){
+      img.addEventListener('click', function(){ openLb(imgs, i); });
+    });
+  });
+})();
