@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ansh Panjabi, Mechanical Engineer</title>
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <meta name="description" content="Ansh Panjabi, penultimate-year Mechanical Engineering (Hons) student at the University of Auckland. FEA-driven design, CNC machining, dynamic simulation. Seeking a summer internship.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,13 +41,7 @@
     </div>
   </div>
   <div class="hero-visual hero-anim" style="--hd:.3s">
-    <span class="visual-tag tl mono">RPM · LIVE</span>
     <canvas id="gear-canvas" aria-label="Rotating 3D gear" role="img"></canvas>
-    <model-viewer id="cad-model" src="bracket.glb" alt="CAD model"
-      auto-rotate rotation-per-second="25deg" camera-controls disable-zoom
-      interaction-prompt="none" shadow-intensity="0.6" exposure="1.1"
-      style="display:none; width:100%; height:100%; position:absolute; inset:0; z-index:2; --poster-color:transparent;"></model-viewer>
-    <span class="visual-tag br mono">MODULE_01</span>
   </div>
 </header>
 
@@ -79,7 +72,7 @@
 
   <div class="cards">
     <a class="card reveal" href="projects.html" style="--d:.05s">
-      <div class="frame"><span class="ftag mono">FIG.01</span><span class="cap mono">[ bracket: ANSYS plot or machined part ]</span><i class="corner tl"></i><i class="corner br"></i></div>
+      <div class="frame"><span class="ftag mono">FIG.01</span><video src="bracket.mp4" autoplay muted loop playsinline aria-label="CNC milling the bracket from polycarbonate"></video><i class="corner tl"></i><i class="corner br"></i></div>
       <div class="card-body">
         <span class="card-no mono">PROJECT 01</span>
         <h3>Structural bracket</h3>
@@ -88,7 +81,7 @@
       </div>
     </a>
     <a class="card reveal" href="projects.html" style="--d:.15s">
-      <div class="frame"><span class="ftag mono">FIG.02</span><span class="cap mono">[ ball-transport: motion study or prototype ]</span><i class="corner tl"></i><i class="corner br"></i></div>
+      <div class="frame"><span class="ftag mono">FIG.02</span><video src="marble-run.mp4" autoplay muted loop playsinline aria-label="Dynamic simulation of the ball-transport mechanism running in 5.0 seconds"></video><i class="corner tl"></i><i class="corner br"></i></div>
       <div class="card-body">
         <span class="card-no mono">PROJECT 02</span>
         <h3>Ball-transport mechanism</h3>
@@ -136,19 +129,5 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
-<script>
-  (function(){
-    var mv = document.getElementById('cad-model');
-    var gear = document.getElementById('gear-canvas');
-    if(!mv) return;
-    mv.addEventListener('load', function(){
-      gear.style.display = 'none';
-      mv.style.display = 'block';
-    });
-    mv.addEventListener('error', function(){
-      mv.remove();
-    });
-  })();
-</script>
 </body>
 </html>

@@ -225,6 +225,7 @@ img{max-width:100%;display:block;}
   display:grid;place-items:center;
 }
 .frame img{width:100%;height:100%;object-fit:cover;}
+.frame video{width:100%;height:100%;object-fit:cover;display:block;}
 .frame .cap{font-family:var(--font-mono);font-size:.76rem;color:var(--text-faint);text-align:center;padding:0 1.4rem;line-height:1.6;letter-spacing:.02em;}
 .frame .corner{position:absolute;width:14px;height:14px;border:1px solid var(--accent);opacity:.55;}
 .frame .corner.tl{top:10px;left:10px;border-right:0;border-bottom:0;}
