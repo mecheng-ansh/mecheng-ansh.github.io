@@ -236,6 +236,9 @@ img{max-width:100%;display:block;}
 .frame .slide{pointer-events:none;}
 .frame .slide.active{pointer-events:auto;}
 .frame img{cursor:zoom-in;}
+.frame video{cursor:zoom-in;}
+.lb-stage{display:grid;place-items:center;}
+video.lb-img{background:#000;}
 .lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,8,13,.93);display:none;place-items:center;padding:2.2rem;}
 .lightbox.on{display:grid;}
 .lightbox .lb-img{max-width:min(1500px,94vw);max-height:88vh;width:auto;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:default;}

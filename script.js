@@ -184,35 +184,51 @@ function initGear(){
   });
 })();
 
-/* ---- fullscreen lightbox for frame images ---- */
+/* ---- fullscreen lightbox for frame images and videos ---- */
 (function(){
   var overlay = document.createElement('div');
   overlay.className = 'lightbox';
   overlay.innerHTML = '<button class="lb-close" aria-label="Close">&#215;</button>' +
     '<button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>' +
-    '<img class="lb-img" alt="">' +
+    '<div class="lb-stage"></div>' +
     '<button class="lb-btn lb-next" aria-label="Next">&#8250;</button>' +
     '<span class="lb-count mono"></span>';
   document.body.appendChild(overlay);
 
-  var lbImg = overlay.querySelector('.lb-img');
+  var stage = overlay.querySelector('.lb-stage');
   var lbCount = overlay.querySelector('.lb-count');
   var prevBtn = overlay.querySelector('.lb-prev');
   var nextBtn = overlay.querySelector('.lb-next');
   var group = [], idx = 0;
 
+  function clearStage(){
+    var v = stage.querySelector('video');
+    if(v){ v.pause(); v.removeAttribute('src'); v.load(); }
+    stage.innerHTML = '';
+  }
   function render(){
-    var im = group[idx];
-    lbImg.src = im.src;
-    lbImg.alt = im.alt || '';
+    clearStage();
+    var el = group[idx];
+    var node;
+    if(el.tagName === 'VIDEO'){
+      node = document.createElement('video');
+      node.src = el.getAttribute('data-full') || el.getAttribute('src');
+      node.controls = true; node.autoplay = true; node.loop = true;
+      node.muted = true; node.playsInline = true;
+    } else {
+      node = document.createElement('img');
+      node.src = el.src; node.alt = el.alt || '';
+    }
+    node.className = 'lb-img';
+    stage.appendChild(node);
     var multi = group.length > 1;
     lbCount.textContent = multi ? (idx + 1) + ' / ' + group.length : '';
     prevBtn.style.display = multi ? 'grid' : 'none';
     nextBtn.style.display = multi ? 'grid' : 'none';
     lbCount.style.display = multi ? 'block' : 'none';
   }
-  function openLb(imgs, i){ group = imgs; idx = i; render(); overlay.classList.add('on'); document.body.style.overflow = 'hidden'; }
-  function closeLb(){ overlay.classList.remove('on'); document.body.style.overflow = ''; }
+  function openLb(items, i){ group = items; idx = i; render(); overlay.classList.add('on'); document.body.style.overflow = 'hidden'; }
+  function closeLb(){ clearStage(); overlay.classList.remove('on'); document.body.style.overflow = ''; }
 
   prevBtn.addEventListener('click', function(e){ e.stopPropagation(); idx = (idx - 1 + group.length) % group.length; render(); });
   nextBtn.addEventListener('click', function(e){ e.stopPropagation(); idx = (idx + 1) % group.length; render(); });
@@ -226,9 +242,9 @@ function initGear(){
   });
 
   document.querySelectorAll('.frame').forEach(function(frame){
-    var imgs = Array.prototype.slice.call(frame.querySelectorAll('img'));
-    imgs.forEach(function(img, i){
-      img.addEventListener('click', function(){ openLb(imgs, i); });
+    var items = Array.prototype.slice.call(frame.querySelectorAll('img, video'));
+    items.forEach(function(el, i){
+      el.addEventListener('click', function(){ openLb(items, i); });
     });
   });
 })();
