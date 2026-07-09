@@ -123,14 +123,6 @@ function initGear(){
   group.rotation.x = -0.45;
   scene.add(group);
 
-  /* faint accent ring behind for depth */
-  var ring = new THREE.Mesh(
-    new THREE.TorusGeometry(2.35, 0.012, 8, 120),
-    new THREE.MeshBasicMaterial({ color:0x6E7BFF, transparent:true, opacity:0.35 })
-  );
-  ring.rotation.x = Math.PI * 0.42;
-  scene.add(ring);
-
   /* lights */
   scene.add(new THREE.AmbientLight(0x3a4358, 0.7));
   var key = new THREE.DirectionalLight(0xcdd9ff, 1.1); key.position.set(3, 4, 5); scene.add(key);
@@ -163,7 +155,6 @@ function initGear(){
       group.rotation.y = cx;
       group.rotation.x = -0.45 + cy;
       group.position.y = Math.sin(t) * 0.06;
-      ring.rotation.z -= 0.0015;
     } else {
       group.rotation.z = 0.3;
     }
@@ -171,3 +162,24 @@ function initGear(){
   }
   loop();
 }
+
+
+/* ---- drawing-pack slideshows ---- */
+(function(){
+  document.querySelectorAll('[data-slides]').forEach(function(frame){
+    var slides = frame.querySelectorAll('.slide');
+    if(slides.length < 2) return;
+    var count = frame.querySelector('.slide-count');
+    var i = 0;
+    function show(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function(el, k){ el.classList.toggle('active', k === i); });
+      if(count) count.textContent = (i + 1) + ' / ' + slides.length;
+    }
+    var prev = frame.querySelector('.prev');
+    var next = frame.querySelector('.next');
+    if(prev) prev.addEventListener('click', function(e){ e.preventDefault(); show(i - 1); });
+    if(next) next.addEventListener('click', function(e){ e.preventDefault(); show(i + 1); });
+    show(0);
+  });
+})();
