@@ -64,18 +64,20 @@
     <div class="proj-body">
       <span class="proj-no mono">PROJECT 02 / MECHANISM DESIGN</span>
       <h3>Multi-mechanism ball-transport device</h3>
-      <p class="sub">A scotch yoke and gear-driven lift designed to a 5.0 second spec. On demo day: exactly 5.0 seconds.</p>
-      <p class="desc">The device had to move a ball through a sequence of mechanisms and deliver it at precisely 5.0 seconds. Our design used a scotch yoke to push the ball out and a gear train driving a large wheel that carried it up. I tuned the geometry in Autodesk Inventor's dynamic simulation until the model hit the target, and we prototyped through 3D printing and laser cutting. On demo day the machine delivered the ball at exactly 5.0 seconds, matching its own simulation.</p>
+      <p class="sub">A gear-driven lifting wheel and a scotch yoke ejector, built to deliver a 9.5 mm steel ball at exactly 5.0 seconds.</p>
+      <p class="desc">The brief: move a 9.5 mm steel ball through a 100 mm acrylic cube and deliver it at exactly 5.0 seconds, driven by a constant 60 rpm input. Our design lifts the ball on a gear-driven wheel working on a ferris wheel principle, then a scotch yoke ejects it through the exit hole, both running off a single six-gear train that slows the wheel to 13.29 rpm and spins the yoke disk to 105 rpm. We tuned the timing in Autodesk Inventor's dynamic simulation until the model delivered at exactly 5.0 seconds, and prototyped entirely by FDM 3D printing across five full print iterations. The physical machine ran between 4.5 and 6.0 seconds over its three demonstration runs, and chasing that gap taught us more about tolerance stack-up and friction than the clean simulation did. We also wrote it a proper flat pack assembly manual: one Allen key, eleven bolts, no glue. The slides run from the manual's cover render to its parts page and help line, ending on the workbook sketch the wheel began as.</p>
       <div class="readout">
         <div class="row"><span class="k">Timing spec</span><span class="v">5.0 s</span></div>
-        <div class="row"><span class="k">Demo result</span><span class="v">5.0 s, exact</span></div>
-        <div class="row"><span class="k">Mechanisms</span><span class="v">Scotch yoke + gear train</span></div>
-        <div class="row"><span class="k">Simulation</span><span class="v">Inventor dynamic</span></div>
+        <div class="row"><span class="k">Demo runs</span><span class="v">4.5 to 6.0 s</span></div>
+        <div class="row"><span class="k">Mechanisms</span><span class="v">Scotch yoke + lifting wheel</span></div>
+        <div class="row"><span class="k">Simulation</span><span class="v">5.0 s, exact</span></div>
+        <div class="row"><span class="k">Build</span><span class="v">PLA FDM · 5 print iterations</span></div>
       </div>
-      <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Dynamic simulation</span><span class="tag">3D printing</span><span class="tag">Laser cutting</span></div>
+      <div class="tags"><span class="tag">Autodesk Inventor</span><span class="tag">Dynamic simulation</span><span class="tag">FDM 3D printing</span><span class="tag">Design for assembly</span></div>
     </div>
     <div class="proj-media">
       <div class="frame"><span class="ftag mono">FIG.02 / BALL TRANSPORT · SIM, REAL TIME</span><video src="marble-run.mp4" autoplay muted loop playsinline aria-label="Inventor dynamic simulation of the ball-transport mechanism delivering the ball in 5.0 seconds, real time"></video><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+      <div class="frame" style="aspect-ratio:1/1; margin-top:1rem;" data-slides><span class="ftag mono">FIG.02B / MANUAL &amp; CONCEPT</span><img class="slide active" src="marble-render.jpg" alt="CAD render of the marble run mechanism inside its 100 mm acrylic cube, from the cover of the assembly manual"><img class="slide" src="marble-parts.jpg" alt="Flat pack style parts page from the marble run assembly manual showing all printed components, gears, shafts and fasteners"><img class="slide" src="marble-manual.jpg" alt="Help and support page from the marble run assembly manual, drawn in flat pack instruction style"><img class="slide" src="marble-sketch.jpg" alt="Early workbook sketch of the ferris wheel lifting concept, showing the pocketed wheel and the ball path through the cube"><button class="slide-btn prev" aria-label="Previous image">&#8249;</button><button class="slide-btn next" aria-label="Next image">&#8250;</button><span class="slide-count mono">1 / 4</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
     </div>
   </article>
 
