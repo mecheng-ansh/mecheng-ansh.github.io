@@ -170,11 +170,20 @@ function initGear(){
     var slides = frame.querySelectorAll('.slide');
     if(slides.length < 2) return;
     var count = frame.querySelector('.slide-count');
+    var capSel = frame.getAttribute('data-cap-target');
+    var capEl = (capSel && frame.parentElement) ? frame.parentElement.querySelector(capSel) : null;
     var i = 0;
     function show(n){
       i = (n + slides.length) % slides.length;
       slides.forEach(function(el, k){ el.classList.toggle('active', k === i); });
       if(count) count.textContent = (i + 1) + ' / ' + slides.length;
+      if(capEl){
+        var day = slides[i].getAttribute('data-day') || '';
+        var txt = slides[i].getAttribute('data-cap') || '';
+        capEl.innerHTML = '';
+        if(day){ var d = document.createElement('span'); d.className = 'intern-cap-day mono'; d.textContent = day; capEl.appendChild(d); capEl.appendChild(document.createTextNode(' ')); }
+        var t = document.createElement('span'); t.className = 'intern-cap-text'; t.textContent = txt; capEl.appendChild(t);
+      }
     }
     var prev = frame.querySelector('.prev');
     var next = frame.querySelector('.next');
@@ -192,10 +201,12 @@ function initGear(){
     '<button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>' +
     '<div class="lb-stage"></div>' +
     '<button class="lb-btn lb-next" aria-label="Next">&#8250;</button>' +
+    '<div class="lb-cap"></div>' +
     '<span class="lb-count mono"></span>';
   document.body.appendChild(overlay);
 
   var stage = overlay.querySelector('.lb-stage');
+  var lbCap = overlay.querySelector('.lb-cap');
   var lbCount = overlay.querySelector('.lb-count');
   var prevBtn = overlay.querySelector('.lb-prev');
   var nextBtn = overlay.querySelector('.lb-next');
@@ -221,6 +232,17 @@ function initGear(){
     }
     node.className = 'lb-img';
     stage.appendChild(node);
+    if(lbCap){
+      var lday = el.getAttribute('data-day');
+      var ltxt = el.getAttribute('data-cap');
+      if(lday || ltxt){
+        lbCap.textContent = (lday ? lday + ' · ' : '') + (ltxt || '');
+        lbCap.style.display = 'block';
+      } else {
+        lbCap.textContent = '';
+        lbCap.style.display = 'none';
+      }
+    }
     var multi = group.length > 1;
     lbCount.textContent = multi ? (idx + 1) + ' / ' + group.length : '';
     prevBtn.style.display = multi ? 'grid' : 'none';
