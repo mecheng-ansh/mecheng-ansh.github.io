@@ -71,10 +71,16 @@ window.INTERN_DAYS = {
     hours: 9,
     tags: ["Bench grinder", "Jack servicing", "Workshop"],
     body: [
-      "A more hands-on fabrication day. I used the bench grinder to polish up hoist parts and a reciprocating saw to cut down some plastic parts, and greased and replaced the oil in two trolley jacks to get them running smoothly again.",
-      "I also cleared out the scrapyard, drove a few cars in, and picked out any parts worth keeping."
+      "A quieter day than usual, so I spent a good part of it on the bench grinder cleaning up hoist cylinder parts, working through all four cylinders on each of the four hoists. I also used the reciprocating saw to cut down some plastic parts.",
+      "I greased and replaced the oil in two trolley jacks as well. That job was more involved and I needed a hand from the senior mechanics, so I did not get any photos of it, but it was good to learn how the jacks come apart and go back together.",
+      "To finish the day I cleared out the scrapyard, drove a few cars in, and picked out any parts worth keeping."
     ],
-    images: []
+    images: [
+      { src: "intern-day-04-1.jpg", cap: "The cylinder part that needed cleaning up on the grinder." },
+      { src: "intern-day-04-2.jpg", cap: "The part before, rough and marked, up against the bench grinder." },
+      { src: "intern-day-04-3.jpg", cap: "The same part after grinding, cleaned up and smooth." },
+      { src: "intern-day-04-4.jpg", cap: "The finished cylinder, ready to go back on." }
+    ]
   },
   5: {
     title: "Chasing a differential leak",
