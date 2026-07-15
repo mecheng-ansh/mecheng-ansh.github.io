@@ -104,12 +104,19 @@ window.INTERN_DAYS = {
   6: {
     title: "Brakes all round and a puncture hunt",
     hours: null,
-    tags: ["Brakes", "Puncture repair", "Headlight"],
+    tags: ["Brakes", "Puncture repair", "Headlight", "Fuel filter"],
     body: [
-      "I replaced the brakes on all four wheels of a Ford, front disc brakes and rear handbrake shoes, and replaced a bulb in a front headlight.",
-      "To find a slow puncture, I pumped the tyre up to 50 psi and dipped it in water to spot exactly where the air was escaping. I also cleaned an air filter, and went out to collect a car from Wingate that needed repairing."
+      "I replaced the brakes on all four wheels of a Ford, front disc brakes and rear handbrake shoes, and replaced the bulb in a front headlight.",
+      "I also replaced a diesel fuel filter, clamping the housing in the vice to open it up and swap the old filter element for a new one.",
+      "To track down a slow puncture I pumped the tyre up to 50 psi and dipped it in water to find exactly where the air was escaping, then went out to collect a car from Wingate that needed repairing."
     ],
-    images: []
+    images: [
+      { src: "intern-day-06-1.jpg", cap: "The front headlight, where I replaced the bulb." },
+      { src: "intern-day-06-2.jpg", cap: "Under the bonnet of the Ford diesel." },
+      { src: "intern-day-06-3.jpg", cap: "The diesel fuel filter clamped in the vice to open up." },
+      { src: "intern-day-06-4.jpg", cap: "The old fuel filter element out, next to the housing." },
+      { src: "intern-day-06-5.jpg", cap: "Inside the filter housing before it went back together." }
+    ]
   },
   7: {
     title: "Inspections and a spring shackle bush",
