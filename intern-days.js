@@ -87,9 +87,19 @@ window.INTERN_DAYS = {
     hours: 9,
     tags: ["Pinion oil seal", "Differential", "Brakes", "Certificate of Fitness"],
     body: [
-      "I traced a differential oil leak coming from the drive shaft and replaced the broken pinion oil seal to fix it. I greased the underside of a truck, went out to do a Certificate of Fitness on a truck, and assisted in replacing the brakes on a Ford Mondeo."
+      "The stand-out job was a leaking differential. I traced the oil leak back to the pinion, dropped the driveshaft to get at it, and replaced the worn pinion oil seal to stop the leak.",
+      "I also greased the underside of a truck and went out to do a Certificate of Fitness on it. By this point that was routine, repeated work with nothing out of the ordinary, so I did not take any photos of it.",
+      "Later in the day I assisted in replacing the brakes on a Ford, swapping the old rotors out for new ones."
     ],
-    images: []
+    images: [
+      { src: "intern-day-05-1.jpg", cap: "Chasing the diff leak: the driveshaft dropped to reach the pinion seal." },
+      { src: "intern-day-05-2.jpg", cap: "The old pinion oil seal out, the source of the leak." },
+      { src: "intern-day-05-3.jpg", cap: "The driveshaft bolted back to the diff once the new seal was in." },
+      { src: "intern-day-05-4.jpg", cap: "The red Ford up on the hoist for its brakes." },
+      { src: "intern-day-05-5.jpg", cap: "Stripped down to the hub with the old rotor off." },
+      { src: "intern-day-05-6.jpg", cap: "The old rusty rotor next to the new one, ready to swap." },
+      { src: "intern-day-05-7.jpg", cap: "The new brake rotor fitted up on the hub." }
+    ]
   },
   6: {
     title: "Brakes all round and a puncture hunt",
