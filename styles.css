@@ -382,3 +382,39 @@ form.contact-form{display:flex;flex-direction:column;gap:1rem;}
 
 /* caption inside the fullscreen lightbox (only shows when a slide carries a caption) */
 .lb-cap{position:fixed;left:50%;bottom:3.6rem;transform:translateX(-50%);z-index:201;display:none;max-width:min(880px,90vw);text-align:center;font-size:.9rem;line-height:1.5;color:var(--text-dim);background:rgba(10,14,20,.72);border:1px solid var(--line);padding:.5rem .95rem;border-radius:10px;backdrop-filter:blur(4px);}
+
+/* ---- field log: day buttons (experience page) ---- */
+.field-log{margin-top:2.4rem;}
+.field-log-head{display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.field-log-head .lbl{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+.field-log-head .sub{font-size:.9rem;color:var(--text-faint);}
+.day-buttons{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:.7rem;}
+.day-btn{display:flex;flex-direction:column;gap:.28rem;border:1px solid var(--line);border-radius:var(--r);padding:.85rem 1rem;background:var(--surface);transition:transform .2s,border-color .2s,background .2s;}
+.day-btn:hover{transform:translateY(-3px);border-color:var(--accent);background:linear-gradient(180deg,rgba(52,240,203,.05),transparent);}
+.day-btn .dn{font-family:var(--font-mono);font-size:1.1rem;color:var(--accent);letter-spacing:.02em;}
+.day-btn .dl{font-size:.9rem;color:var(--text-dim);font-weight:500;line-height:1.2;}
+.day-btn:hover .dl{color:var(--text);}
+
+/* ---- day detail page ---- */
+.back-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.04em;color:var(--text-dim);transition:color .2s;}
+.back-link:hover{color:var(--accent);}
+.back-link .ar{transition:transform .2s;}
+.back-link:hover .ar{transform:translateX(-3px);}
+.day-meta{color:var(--text-faint);font-size:.9rem;letter-spacing:.05em;margin-top:.9rem;}
+.day-wrap{max-width:780px;padding-top:clamp(1.5rem,4vw,2.5rem);padding-bottom:clamp(3rem,7vw,5rem);}
+.day-media{margin-bottom:2rem;}
+.day-media .frame{aspect-ratio:1/1;}
+.day-cap{margin-top:.95rem;font-size:.94rem;line-height:1.55;color:var(--text-dim);min-height:2.4em;}
+.day-empty{border:1px dashed var(--line-2);border-radius:var(--r);padding:2.6rem 1.4rem;text-align:center;background:var(--bg-2);}
+.day-empty .mono{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.04em;color:var(--text-faint);}
+.day-body .desc{color:var(--text);font-size:1.1rem;line-height:1.7;margin-bottom:1.2rem;}
+.day-body .tags{margin-top:1.8rem;}
+.day-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);}
+.day-move{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.82rem;color:var(--text);border:1px solid var(--line-2);border-radius:999px;padding:.5rem 1rem;transition:border-color .2s,color .2s;}
+.day-move:hover{border-color:var(--accent);color:var(--accent);}
+.day-move.disabled{border-color:transparent;pointer-events:none;visibility:hidden;}
+.day-move .ar{transition:transform .2s;}
+.day-move.next:hover .ar,.day-move:hover .ar{transform:none;}
+.day-all{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;color:var(--text-faint);transition:color .2s;}
+.day-all:hover{color:var(--accent);}
+@media (max-width:520px){.day-btn{padding:.75rem .85rem;}.day-all{display:none;}}

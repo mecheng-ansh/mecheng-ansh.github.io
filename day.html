@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-NZ" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field log | Ansh Panjabi</title>
+<meta name="description" content="A day from Ansh Panjabi's mechanical internship at Bruce Mills 2012 Ltd: the work, the tools, and the photos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html"><span class="mark">AP</span><b>Ansh Panjabi</b></a>
+  <div class="nav-links">
+    <a href="projects.html"><span class="ix">01</span> Projects</a>
+    <a href="experience.html" aria-current="page"><span class="ix">02</span> Experience</a>
+    <a class="cta" href="contact.html">Hire me</a>
+  </div>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-overlay" aria-hidden="true">
+  <a href="projects.html"><span class="ix">01</span> Projects</a>
+  <a href="experience.html"><span class="ix">02</span> Experience</a>
+  <a href="contact.html"><span class="ix">03</span> Contact</a>
+</div>
+
+<header class="page-top wrap">
+  <a class="back-link" href="experience.html"><span class="ar">&larr;</span> Field log</a>
+  <span class="eyebrow" style="margin-top:1.1rem;">Bruce Mills 2012 Ltd &middot; Lower Hutt</span>
+  <h2 id="day-title" style="font-family:var(--font-display); font-weight:700; font-size:clamp(2.2rem,6vw,4rem); line-height:1.04; letter-spacing:-.03em; margin-top:1.1rem;">&nbsp;</h2>
+  <p id="day-meta" class="day-meta mono">&nbsp;</p>
+</header>
+
+<main class="wrap day-wrap">
+  <noscript><p style="color:var(--text-dim);">This page needs JavaScript to load the day's write-up and photos. You can head <a href="experience.html">back to the field log</a>.</p></noscript>
+  <div id="day-media" class="day-media"></div>
+  <div id="day-body" class="day-body"></div>
+  <nav id="day-nav" class="day-nav" aria-label="Move between days"></nav>
+</main>
+
+<footer class="foot">
+  <div class="foot-cta wrap">
+    <h2>Want the detail behind any of these? <em>Ask me.</em></h2>
+    <a class="btn btn-primary" href="contact.html">Get in touch <span class="arr">&rarr;</span></a>
+  </div>
+  <div class="foot-bar wrap">
+    <div class="links">
+      <a href="mailto:ansh.panjabi99@gmail.com">ansh.panjabi99@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ansh-panjabi-087a18276" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Ansh_Panjabi_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+    <span>&copy; <span id="year">2026</span> Ansh Panjabi &middot; Auckland, NZ</span>
+  </div>
+</footer>
+
+<!-- day content is data-driven: render BEFORE script.js so its slideshow/lightbox pick up the generated frame -->
+<script src="intern-days.js"></script>
+<script>
+(function(){
+  var DAYS = window.INTERN_DAYS || {};
+  var params = new URLSearchParams(window.location.search);
+  var n = parseInt(params.get('day'), 10);
+  if(!DAYS[n]) n = 1;
+  var d = DAYS[n];
+  var pad = (n < 10 ? '0' : '') + n;
+  var MID = ' \u00B7 ';
+
+  document.title = 'Day ' + pad + MID + d.title + ' | Ansh Panjabi';
+
+  var titleEl = document.getElementById('day-title');
+  var metaEl = document.getElementById('day-meta');
+  if(titleEl) titleEl.textContent = d.title;
+  if(metaEl) metaEl.textContent = 'Day ' + pad + (d.hours ? MID + d.hours + ' hours on the tools' : '');
+
+  /* ---- media ---- */
+  var media = document.getElementById('day-media');
+  var imgs = d.images || [];
+  if(media){
+    if(imgs.length === 0){
+      media.innerHTML = '<div class="day-empty"><span class="mono">Photos from this day are on the way.</span></div>';
+    } else {
+      var slidesHTML = imgs.map(function(im, i){
+        return '<img class="slide' + (i===0 ? ' active' : '') + '" src="' + im.src +
+               '" alt="Day ' + pad + ', Bruce Mills field log" data-day="Day ' + pad +
+               '" data-cap="' + im.cap + '">';
+      }).join('');
+      var controls = '', capTarget = '';
+      if(imgs.length > 1){
+        controls = '<button class="slide-btn prev" aria-label="Previous image">\u2039</button>' +
+                   '<button class="slide-btn next" aria-label="Next image">\u203A</button>' +
+                   '<span class="slide-count mono">1 / ' + imgs.length + '</span>';
+        capTarget = ' data-cap-target=".day-cap"';
+      }
+      var corners = '<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>';
+      media.innerHTML =
+        '<div class="frame" style="aspect-ratio:1/1;" data-slides' + capTarget + '>' +
+          slidesHTML + controls + corners +
+        '</div>' +
+        '<p class="day-cap"><span class="intern-cap-day mono">Day ' + pad +
+          '</span> <span class="intern-cap-text">' + imgs[0].cap + '</span></p>';
+    }
+  }
+
+  /* ---- body ---- */
+  var body = document.getElementById('day-body');
+  if(body){
+    var paras = (d.body || []).map(function(p){ return '<p class="desc">' + p + '</p>'; }).join('');
+    var tags = (d.tags || []).map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('');
+    body.innerHTML = paras + (tags ? '<div class="tags">' + tags + '</div>' : '');
+  }
+
+  /* ---- prev / all / next ---- */
+  var navEl = document.getElementById('day-nav');
+  if(navEl){
+    function lbl(x){ return 'Day ' + ((x < 10 ? '0' : '') + x); }
+    var prev = n > 1
+      ? '<a class="day-move" href="day.html?day=' + (n-1) + '"><span class="ar">\u2190</span> ' + lbl(n-1) + '</a>'
+      : '<span class="day-move disabled" aria-hidden="true"></span>';
+    var next = n < 19
+      ? '<a class="day-move" href="day.html?day=' + (n+1) + '">' + lbl(n+1) + ' <span class="ar">\u2192</span></a>'
+      : '<span class="day-move disabled" aria-hidden="true"></span>';
+    navEl.innerHTML = prev + '<a class="day-all" href="experience.html">All days</a>' + next;
+  }
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
