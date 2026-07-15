@@ -13,7 +13,11 @@ window.INTERN_DAYS = {
       "My first day was about getting familiar with the workshop and how it runs. I jump-started a flat battery, refitted a loose exhaust pipe, and spent time learning what the different parts of a car do and where they sit.",
       "I also moved cars in and out of the workshop and the scrapyard out the back, which got me used to the space and the range of vehicles coming through."
     ],
-    images: []
+    images: [
+      { src: "intern-day-01-1.jpg", cap: "The Bruce Mills workshop, finding my way around on the first day." },
+      { src: "intern-day-01-2.jpg", cap: "The main floor, with cars up on the two-post hoists." },
+      { src: "intern-day-01-3.jpg", cap: "The parts room, learning what the different parts are and where they live." }
+    ]
   },
   2: {
     title: "Certificate of Fitness and a full grease-up",
