@@ -44,7 +44,28 @@ window.INTERN_DAYS = {
       "A full service on a van. I checked and replaced the differential oil and the engine oil, and replaced the brakes right through, pads, calliper and rotor.",
       "I also replaced a brake cable on the underside, cleaned the wheel rims and tyres, and topped up the windscreen washer fluid. To finish, I assisted in replacing a broken section of the exhaust pipe."
     ],
-    images: []
+    images: [
+      { src: "intern-day-03-1.jpg",  cap: "The Hyundai iLoad in for a Warrant of Fitness and a full service." },
+      { src: "intern-day-03-2.jpg",  cap: "The same van from the rear before it went up on the hoist." },
+      { src: "intern-day-03-3.jpg",  cap: "Up on the two-post hoist, ready to work underneath." },
+      { src: "intern-day-03-4.jpg",  cap: "A new front brake fitted up: disc, pads and caliper." },
+      { src: "intern-day-03-5.jpg",  cap: "Wheels off and the old rotor out during the brake job." },
+      { src: "intern-day-03-6.jpg",  cap: "Working around the rear brake and handbrake." },
+      { src: "intern-day-03-7.jpg",  cap: "The brake cable that was replaced along the underside." },
+      { src: "intern-day-03-8.jpg",  cap: "Draining the old engine oil into the pan." },
+      { src: "intern-day-03-9.jpg",  cap: "Checking the differential oil while it was up on the hoist." },
+      { src: "intern-day-03-10.jpg", cap: "A fresh oil filter ready to go on." },
+      { src: "intern-day-03-11.jpg", cap: "Old oil draining out from under the engine." },
+      { src: "intern-day-03-12.jpg", cap: "Underneath the van: diff, driveshaft and exhaust in one view." },
+      { src: "intern-day-03-13.jpg", cap: "The exhaust and muffler running back along the floor." },
+      { src: "intern-day-03-14.jpg", cap: "Driveshaft, handbrake cable and the rear leaf spring." },
+      { src: "intern-day-03-15.jpg", cap: "Brake and fuel lines routed along the chassis." },
+      { src: "intern-day-03-16.jpg", cap: "Following the lines and mounts under the body." },
+      { src: "intern-day-03-17.jpg", cap: "Up inside the rear wheel arch." },
+      { src: "intern-day-03-18.jpg", cap: "Around the exhaust and filter under the engine." },
+      { src: "intern-day-03-19.jpg", cap: "Another vehicle up on the hoist in the shop that day." },
+      { src: "intern-day-03-20.jpg", cap: "The van wrapped up and back on its wheels." }
+    ]
   },
   4: {
     title: "Fabrication clean-up and jack servicing",
