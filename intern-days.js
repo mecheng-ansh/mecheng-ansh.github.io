@@ -121,12 +121,25 @@ window.INTERN_DAYS = {
   7: {
     title: "Inspections and a spring shackle bush",
     hours: null,
-    tags: ["WOF", "Spring shackle bush", "Lathe"],
+    tags: ["WOF", "Spring shackle bush", "Reciprocating saw", "Lathe", "Drill press", "Brakes"],
     body: [
-      "I ran a general inspection on a van, replacing four side light bulbs, topping up the washer fluid and checking the tyre pressures. I also learned how to inspect brake pad thickness and the rotor without taking the whole wheel off.",
-      "After that I did Warrant of Fitness checks on two cars, and replaced a rear right spring shackle bush. The new bush had to be resized on the saw, and the spring bush pin was too wide and long, so I used the lathe to bring it down to the right dimensions."
+      "I ran a general inspection on a van, replacing four side light bulbs, topping up the washer fluid and checking the tyre pressures. I also learned to inspect brake pad thickness and the rotor without taking the whole wheel off, then did Warrant of Fitness checks on two cars, cleaning the air and engine filters as part of that.",
+      "The biggest job was replacing a worn rear spring shackle bush. I knocked the old bush and bracket out from underneath, then did the fitting work on the bench: the new bush had to be resized on the reciprocating saw, and the spring bush pin was too wide and long, so I turned it down to the right dimensions on the lathe and drilled the bracket to suit on the drill press.",
+      "Once everything was machined to fit, I pressed the new bush into the bracket and refitted the shackle under the van."
     ],
-    images: []
+    images: [
+      { src: "intern-day-07-1.jpg",  cap: "The van up on stands to get at the rear leaf spring and shackle." },
+      { src: "intern-day-07-2.jpg",  cap: "Inspecting the brake pads and rotor without pulling the wheel off." },
+      { src: "intern-day-07-3.jpg",  cap: "The rear shackle and leaf spring, with the worn bush to replace." },
+      { src: "intern-day-07-4.jpg",  cap: "Driving the old shackle bush out from under the van." },
+      { src: "intern-day-07-5.jpg",  cap: "The old shackle bracket and worn bush out on the bench." },
+      { src: "intern-day-07-6.jpg",  cap: "Resizing the new bush to fit on the reciprocating saw." },
+      { src: "intern-day-07-7.jpg",  cap: "Drilling out the bracket on the drill press." },
+      { src: "intern-day-07-8.jpg",  cap: "Turning the spring bush pin down to size on the lathe." },
+      { src: "intern-day-07-9.jpg",  cap: "The new bush fitted into the shackle bracket." },
+      { src: "intern-day-07-10.jpg", cap: "Back under the van, cleaning up the shackle mount." },
+      { src: "intern-day-07-11.jpg", cap: "The rebuilt shackle bolted back up under the van." }
+    ]
   },
   8: {
     title: "Spring work and a welded retainer",
