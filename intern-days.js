@@ -39,15 +39,14 @@ window.INTERN_DAYS = {
   3: {
     title: "Full service on a van",
     hours: 8,
-    tags: ["Full service", "Brakes", "Oil change", "Exhaust"],
+    tags: ["Full service", "Brakes", "Oil change", "Exhaust", "Welding", "Turning"],
     body: [
       "A full service on a van. I checked and replaced the differential oil and the engine oil, and replaced the brakes right through, pads, calliper and rotor.",
-      "I also replaced a brake cable on the underside, cleaned the wheel rims and tyres, and topped up the windscreen washer fluid. To finish, I assisted in replacing a broken section of the exhaust pipe."
+      "I also replaced a brake cable on the underside, cleaned the wheel rims and tyres, and topped up the windscreen washer fluid.",
+      "The exhaust had a broken section, and repairing it was the most hands-on part of the day. Alongside the senior mechanics I got time on the lathe and the welder: turning a metal piece down to fit the size of the exhaust, then welding it onto the pipe to join it back together. That work took both hands, so there are no photos of it, but it was a good bit of turning and welding."
     ],
     images: [
-      { src: "intern-day-03-1.jpg",  cap: "The Hyundai iLoad in for a Warrant of Fitness and a full service." },
-      { src: "intern-day-03-2.jpg",  cap: "The same van from the rear before it went up on the hoist." },
-      { src: "intern-day-03-3.jpg",  cap: "Up on the two-post hoist, ready to work underneath." },
+      { src: "intern-day-03-3.jpg",  cap: "Up on the two-post hoist to start the service." },
       { src: "intern-day-03-4.jpg",  cap: "A new front brake fitted up: disc, pads and caliper." },
       { src: "intern-day-03-5.jpg",  cap: "Wheels off and the old rotor out during the brake job." },
       { src: "intern-day-03-6.jpg",  cap: "Working around the rear brake and handbrake." },
@@ -63,8 +62,10 @@ window.INTERN_DAYS = {
       { src: "intern-day-03-16.jpg", cap: "Following the lines and mounts under the body." },
       { src: "intern-day-03-17.jpg", cap: "Up inside the rear wheel arch." },
       { src: "intern-day-03-18.jpg", cap: "Around the exhaust and filter under the engine." },
-      { src: "intern-day-03-19.jpg", cap: "Another vehicle up on the hoist in the shop that day." },
-      { src: "intern-day-03-20.jpg", cap: "The van wrapped up and back on its wheels." }
+      { src: "intern-day-03-19.jpg", cap: "The same van from the side, still up on the hoist." },
+      { src: "intern-day-03-2.jpg",  cap: "The finished van from the rear, service done." },
+      { src: "intern-day-03-20.jpg", cap: "Back down on its wheels and ready to go." },
+      { src: "intern-day-03-1.jpg",  cap: "The van after its Warrant of Fitness and full service." }
     ]
   },
   4: {
