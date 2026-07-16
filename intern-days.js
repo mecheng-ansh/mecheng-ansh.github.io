@@ -128,17 +128,14 @@ window.INTERN_DAYS = {
       "Once everything was machined to fit, I pressed the new bush into the bracket and refitted the shackle under the van."
     ],
     images: [
-      { src: "intern-day-07-1.jpg",  cap: "The van up on stands to get at the rear leaf spring and shackle." },
-      { src: "intern-day-07-2.jpg",  cap: "Inspecting the brake pads and rotor without pulling the wheel off." },
-      { src: "intern-day-07-3.jpg",  cap: "The rear shackle and leaf spring, with the worn bush to replace." },
-      { src: "intern-day-07-4.jpg",  cap: "Driving the old shackle bush out from under the van." },
-      { src: "intern-day-07-5.jpg",  cap: "The old shackle bracket and worn bush out on the bench." },
-      { src: "intern-day-07-6.jpg",  cap: "Resizing the new bush to fit on the reciprocating saw." },
-      { src: "intern-day-07-7.jpg",  cap: "Drilling out the bracket on the drill press." },
-      { src: "intern-day-07-8.jpg",  cap: "Turning the spring bush pin down to size on the lathe." },
-      { src: "intern-day-07-9.jpg",  cap: "The new bush fitted into the shackle bracket." },
-      { src: "intern-day-07-10.jpg", cap: "Back under the van, cleaning up the shackle mount." },
-      { src: "intern-day-07-11.jpg", cap: "The rebuilt shackle bolted back up under the van." }
+      { src: "intern-day-07-1.jpg", cap: "The rear leaf spring and shackle with the worn bush, van up on stands." },
+      { src: "intern-day-07-2.jpg", cap: "Inspecting the brake pads and rotor without pulling the wheel off." },
+      { src: "intern-day-07-3.jpg", cap: "Driving the old shackle bush out from under the van." },
+      { src: "intern-day-07-4.jpg", cap: "The old shackle bracket and worn bush out on the bench." },
+      { src: "intern-day-07-5.jpg", cap: "Drilling the bracket out on the drill press." },
+      { src: "intern-day-07-6.jpg", cap: "My supervisor checking that my lathe work on the bush pin was up to standard." },
+      { src: "intern-day-07-7.jpg", cap: "The new bush fitted into the shackle bracket." },
+      { src: "intern-day-07-8.jpg", cap: "The rebuilt shackle bolted back up under the van." }
     ]
   },
   8: {
